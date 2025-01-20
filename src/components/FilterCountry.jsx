@@ -17,13 +17,14 @@ function FilterCountry() {
         value={curRegion}
         variant="filled"
         fullWidth
+        bgcolor="primary.main"
         sx={{
           bgcolor: "primary.light",
           "& .MuiInputLabel-root": {
             color: "primary.contrastText",
           },
           "& .MuiInputLabel-root.Mui-focused": {
-            color: "",
+            color: "primary.contrastText",
           },
         }}
         onChange={(e) => dispatch({ type: "FILTER", payload: e.target.value })}

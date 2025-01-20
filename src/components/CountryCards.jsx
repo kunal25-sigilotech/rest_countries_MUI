@@ -7,9 +7,17 @@ function CountryCards() {
 
   if (isLoading)
     return (
-      <div>
-        <p>Loading data...</p>
-      </div>
+      <Grid2
+        container
+        sx={{
+          minHeight: "100dvh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Grid2 size={12}>Loading data...</Grid2>
+      </Grid2>
     );
 
   if (error)
@@ -55,7 +63,7 @@ function CountryCards() {
               loading="lazy"
               sx={{
                 objectFit: "cover",
-                aspectRatio: "3/2",
+                aspectRatio: "16/9",
                 borderTopRightRadius: "9px",
                 borderTopLeftRadius: "9px",
               }}

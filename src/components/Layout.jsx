@@ -2,7 +2,7 @@ import { Box, Paper } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 
-function Layout({ onSetDarkMode }) {
+function Layout({ curTheme, onSetTheme }) {
   return (
     <Box
       bgcolor="primary.main"
@@ -14,7 +14,7 @@ function Layout({ onSetDarkMode }) {
       }}
     >
       <Paper component="header" sx={{ margin: 0, padding: 0 }}>
-        <Header onSetDarkMode={onSetDarkMode} />
+        <Header curTheme={curTheme} onSetTheme={onSetTheme} />
       </Paper>
       <Box component="main" sx={{ margin: 0, padding: 0 }}>
         <Outlet />

@@ -12,8 +12,6 @@ function CountryDetails() {
   const [currency, setCurrency] = useState("");
   const [borderCountries, setBorderCountries] = useState([]);
 
-  console.log(country);
-
   useEffect(() => {
     async function getCountryData() {
       try {
@@ -54,6 +52,7 @@ function CountryDetails() {
     <Grid2
       component="section"
       container
+      rowGap={4}
       p={2}
       sx={{
         width: "100%",
@@ -64,7 +63,16 @@ function CountryDetails() {
     >
       <Grid2 size={12}>
         <Button variant="contained">
-          <Link to="/">Back</Link>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              fontWeight: "600",
+            }}
+          >
+            &larr; Back
+          </Link>
         </Button>
       </Grid2>
       <Grid2 component="figure" size={{ xl: 5, lg: 5, md: 12, sm: 12, xs: 12 }}>
@@ -169,71 +177,6 @@ function CountryDetails() {
           </Stack>
         </Box>
       </Grid2>
-      {/* <Grid2 size={{ xl: 6, lg: 6, md: 5 }} columnGap={4}>
-          <Stack spacing={2}>
-            <Typography
-              variant="h4"
-              fontSize="32px"
-              fontWeight="600"
-              component="h2"
-              marginBottom="36px"
-            >
-              {country.name.common}
-            </Typography>
-            <Stack direction="row" spacing={1}>
-              <Typography variant="body1" fontWeight="600">
-                Population:
-              </Typography>
-              <Typography variant="body1">
-                {new Intl.NumberFormat("en-US").format(country.population)}
-              </Typography>
-            </Stack>
-            <Stack direction="row" spacing={1}>
-              <Typography variant="body1" fontWeight="600">
-                Sub-Region:
-              </Typography>
-              <Typography variant="body1">{country.subregion}</Typography>
-            </Stack>
-            <Stack direction="row" spacing={1}>
-              <Typography variant="body1" fontWeight="600">
-                Capital:
-              </Typography>
-              <Typography variant="body1">{country.capital}</Typography>
-            </Stack>
-          </Stack>
-        </Grid2>
-        <Grid2 alignSelf="end" size={5} rowGap={4}>
-          <Stack spacing={2}>
-            <Stack direction="row" spacing={1}>
-              <Typography variant="body1" fontWeight="600">
-                Top-level-domain:
-              </Typography>
-              <Typography variant="body1">{country.tld[0]}</Typography>
-            </Stack>
-            <Stack direction="row" spacing={1}>
-              <Typography variant="body1" fontWeight="600">
-                Currency:
-              </Typography>
-              <Typography variant="body1">{currency}</Typography>
-            </Stack>
-            <Stack direction="row" spacing={1}>
-              <Typography variant="body1" fontWeight="600">
-                Languages:
-              </Typography>
-              <Typography variant="body1">{languages.join(", ")}</Typography>
-            </Stack>
-          </Stack>
-        </Grid2>
-        <Grid2 size={12} marginTop="20px">
-          <Stack direction="row" spacing={1} mt="16px">
-            <Typography variant="body1" fontWeight="600">
-              Border countries:
-            </Typography>
-            <Typography variant="body1">
-              {borderCountries.join(", ")}
-            </Typography>
-          </Stack>
-        </Grid2> */}
     </Grid2>
   );
 }

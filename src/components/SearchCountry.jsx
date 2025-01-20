@@ -38,7 +38,10 @@ function SearchCountry() {
   }, [query, dispatch, memoizedCountries, handleSearch]);
 
   return (
-    <Stack sx={{ boxShadow: "0 3px 3px  rgba(0, 0, 0, 0.2)" }}>
+    <Stack
+      sx={{ boxShadow: "0 3px 3px  rgba(0, 0, 0, 0.2)" }}
+      bgcolor="primary.light"
+    >
       <TextField
         label="Search for a country..."
         type="text"
@@ -49,7 +52,7 @@ function SearchCountry() {
             color: "primary.contrastText",
           },
           "& .MuiInputLabel-root.Mui-focused": {
-            color: "",
+            color: "primary.contrastText",
           },
         }}
         onChange={(e) => setQuery(e.target.value)}

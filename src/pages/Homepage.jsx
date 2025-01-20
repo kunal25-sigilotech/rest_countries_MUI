@@ -9,12 +9,19 @@ function Homepage() {
       container
       component="section"
       spacing={4}
-      p={2}
       sx={{
         width: "100%",
         maxWidth: "1280px",
         margin: "0 auto",
         justifyContent: "space-between",
+        paddingInline: {
+          xl: "32px",
+          lg: "32px",
+          md: "28px",
+          sm: "24px",
+          xs: "24px",
+        },
+        paddingBlock: "12px",
       }}
     >
       <Grid2 size={{ xl: 4, lg: 4, md: 4, sm: 6, xs: 8 }} component="aside">
