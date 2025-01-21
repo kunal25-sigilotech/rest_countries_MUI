@@ -5,6 +5,7 @@ const CountryContext = createContext();
 
 const initialState = {
   isLoading: false,
+  isSearching: false,
   countryData: [],
   filteredData: [],
   error: "",
@@ -42,14 +43,19 @@ function reducer(state, action) {
     case "SEARCH":
       return { ...state, filteredData: action.payload };
 
+    case "QUERYING":
+      return { ...state, isSearching: action.payload };
+
     default:
       throw new Error("Unknown action type");
   }
 }
 
 export default function CountryDataProvider({ children }) {
-  const [{ countryData, filteredData, isLoading, error, curRegion }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { countryData, filteredData, isLoading, error, curRegion, isSearching },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   useEffect(() => {
     async function getAllCountryData() {
@@ -74,6 +80,7 @@ export default function CountryDataProvider({ children }) {
         countryData,
         filteredData,
         isLoading,
+        isSearching,
         error,
         curRegion,
         dispatch,

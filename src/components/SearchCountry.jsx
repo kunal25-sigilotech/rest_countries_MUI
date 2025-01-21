@@ -22,6 +22,7 @@ function SearchCountry() {
         country.name.common.toLocaleLowerCase().includes(modifiedQueryStr)
       );
 
+      dispatch({ type: "QUERYING", payload: true });
       dispatch({ type: "SEARCH", payload: foundCountries });
     },
     [dispatch, memoizedCountries]
@@ -30,6 +31,7 @@ function SearchCountry() {
   useEffect(() => {
     if (!query) {
       dispatch({ type: "SEARCH", payload: memoizedCountries });
+      dispatch({ type: "QUERYING", payload: false });
       return;
     }
 

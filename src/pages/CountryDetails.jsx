@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ONE_COUNTRY } from "../utils/endpoints";
 
-function CountryDetails() {
+function CountryDetails({ curTheme }) {
   const { name } = useParams();
   const [isloading, setIsLoading] = useState(false);
   const [country, setCountry] = useState(null);
@@ -53,6 +53,7 @@ function CountryDetails() {
       component="section"
       container
       rowGap={4}
+      columnGap={4}
       p={2}
       sx={{
         width: "100%",
@@ -62,7 +63,7 @@ function CountryDetails() {
       }}
     >
       <Grid2 size={12}>
-        <Button variant="contained">
+        <Button color="#fff" variant="contained">
           <Link
             to="/"
             style={{
@@ -75,7 +76,14 @@ function CountryDetails() {
           </Link>
         </Button>
       </Grid2>
-      <Grid2 component="figure" size={{ xl: 5, lg: 5, md: 12, sm: 12, xs: 12 }}>
+      <Grid2
+        component="figure"
+        offset={{ xl: 0, lg: 0, md: 1, sm: 1, xs: 1 }}
+        sx={{
+          border: `8px solid ${curTheme === "light" ? "#6b7280" : "#111827"}`,
+        }}
+        size={{ xl: 5, lg: 5, md: 12, sm: 12, xs: 12 }}
+      >
         <img
           src={country.flags.png}
           alt={country.name.common}
@@ -110,10 +118,10 @@ function CountryDetails() {
         >
           <Typography
             variant="h4"
-            fontSize="32px"
+            fontSize="28px"
             fontWeight="600"
             component="h2"
-            marginBottom="28px"
+            marginBottom="20px"
             sx={{ gridColumn: "1/-1" }}
           >
             {country.name.common}

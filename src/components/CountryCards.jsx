@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useCountryData } from "../context/CountryContext";
 
 function CountryCards() {
-  const { filteredData, error, isLoading } = useCountryData();
+  const { filteredData, error, isLoading, isSearching } = useCountryData();
+  console.log(isSearching);
 
   if (isLoading)
     return (
@@ -43,17 +44,18 @@ function CountryCards() {
       sx={{
         margin: 0,
         padding: 0,
+        justifyContent: `${isSearching ? "start" : "center"}`,
       }}
     >
       {filteredData.map((country, i) => (
         <Grid2
           key={i}
-          component="li"
           size={{ xl: 3, lg: 3, md: 4, sm: 6, xs: 12 }}
+          component="li"
           sx={{
             listStyle: "none",
             width: "100%",
-            maxWidth: "18rem",
+            maxWidth: "17.5rem",
             borderRadius: "9px",
           }}
         >

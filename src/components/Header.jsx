@@ -62,6 +62,15 @@ function Header({ curTheme, onSetTheme }) {
               component="span"
               fontWeight="500"
               color="#fff"
+              sx={{
+                fontSize: {
+                  xs: "12px",
+                  sm: "12px",
+                  md: "16px",
+                  lg: "16px",
+                  xl: "16px",
+                },
+              }}
             >
               Dark
             </Typography>

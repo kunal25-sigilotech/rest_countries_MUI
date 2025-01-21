@@ -32,7 +32,10 @@ function App() {
               element={<Layout curTheme={curTheme} onSetTheme={setCurTheme} />}
             >
               <Route index element={<Homepage />} />
-              <Route path="/:name" element={<CountryDetails />} />
+              <Route
+                path="/:name"
+                element={<CountryDetails curTheme={curTheme} />}
+              />
             </Route>
           </Routes>
         </BrowserRouter>
